@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Information has been Saved</title>
+</head>
+
+
+<script type="text/javascript">
+
+var url_string = window.location.href;
+var url = new URL(url_string);
+var FirstName = url.searchParams.get("FirstName");
+var LastName = url.searchParams.get("LastName");
+var Email = url.searchParams.get("Email");
+var MobileNo = url.searchParams.get("MobileNo");
+
+
+var request = new XMLHttpRequest();
+
+request.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+    }
+};
+var final_url="https://script.google.com/macros/s/AKfycbzIETdgMHt2ro5AuuVhN4DnUnHbdP_8G8bqnU2KTPNFmdUC4Snth0EPZxpZqG3wITrd/exec?FirstName=";
+final_url=final_url+FirstName+"&LastName="+LastName+"&Email="+Email+"&MobileNo="+MobileNo;
+request.open('GET', final_url);
+request.send();
+
+
+</script>
+<body>
+    
+ <h1 id="confirmation"> Your Information has been saved</h1>
+
+ <a href="https://www.swayalgo.com/1pnu"><button>See Google Sheet</button></a>
+
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>
