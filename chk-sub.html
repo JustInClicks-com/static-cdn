@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Successful</title>
+</head>
+
+
+<script type="text/javascript">
+
+var url_string = window.location.href;
+var url = new URL(url_string);
+var username = url.searchParams.get("usrname");
+var mail = url.searchParams.get("mail");
+var ref = url.searchParams.get("ref");
+
+var request = new XMLHttpRequest();
+
+request.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+    }
+};
+var final_url="https://script.google.com/macros/s/AKfycbwVDfVphccvtN2GZuo9xIHMDaTHA-sLf804edjC5oJYkTBAoWUlpjxaxWvMcfuv4NbLEQ/exec?usrname=";
+final_url=final_url+username+"&mail="+mail;
+request.open('GET', final_url);
+request.send();
+
+
+</script>
+<body>
+    
+ <h1 id="confirmation"></h1>
+<p id="redirect"> </p>
+
+<script type="text/javascript">
+document.getElementById("confirmation").innerHTML="Thank You "+username+", Your Subscription was successful,";
+document.getElementById("redirect").innerHTML=" Taking back you to <a href="+url+">"+url+"</a> in 5 seconds <br> <br>If Not redirected <a href="+url+">Click here</a>";
+setTimeout(function(){
+            window.location.href = url';
+         }, 5000);
+</script>
+
+</body>
+</html>
