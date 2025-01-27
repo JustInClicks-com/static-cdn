@@ -135,7 +135,7 @@
         prevPageButton.addEventListener('click', prevPage);
         nextPageButton.addEventListener('click', nextPage);
 
-        const pdfUrl = encodeURI('gurucharitra.pdf'); // Replace with the actual PDF URL
+        const pdfUrl = encodeURI('GuruCharitra-Marathi.pdf'); // Replace with the actual PDF URL
         pdfjsLib.getDocument(pdfUrl).promise.then(pdfDocument => {
             pdfDoc = pdfDocument;
             renderPage(1);
